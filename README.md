@@ -71,7 +71,7 @@ File executed
     ↓
 Higher-risk behavior chain
 
-Risk-Scoring Philosophy
+## Risk-Scoring Philosophy
 A central design principle of this project is:
 One suspicious indicator is not proof of malicious behavior.
 
@@ -87,7 +87,7 @@ process execution         → stronger risk
 download → save → execute → high-interest behavior chain
 
 This approach is intended to reduce false positives and provide an explanation for why a file received a particular risk score.
-Planned Development
+## Planned Development
 Future milestones include:
 - Read source files line by line
 - Detect Java-specific security indicators
@@ -104,7 +104,7 @@ Future milestones include:
 - Improve false-positive handling
 - Add logging and scan reports
 - Develop increasingly realistic security test cases
-Long-Term Goal
+##Long-Term Goal
 The long-term goal is to develop this into a multi-language static-analysis security tool capable of examining source code and identifying meaningful combinations of potentially risky behavior.
 Rather than simply searching for dangerous-looking words, the project will increasingly focus on:
 What capability exists?
@@ -117,7 +117,7 @@ Where does the data go next?
 
 Are several risky behaviors connected?
 
-Technologies
+## Technologies
 - Java
 - Java standard library
 - Visual Studio Code
@@ -125,11 +125,10 @@ Technologies
 - GitHub
 Additional libraries and technologies will be introduced as the scanner becomes more sophisticated.
 Status
-Early development
+## Early development
 The project currently has the initial application structure and file-type detection system in place. Source-code content scanning is the next major feature under development.
-Author
+## Author
 David Schmidt
 High school computer science and technology educator transitioning into professional software development, with current focus areas including Java, COBOL, web development, and cybersecurity.
-
-
+I especially like the **“build evidence”** section for this project. It captures the security philosophy you’ve already developed: your scanner shouldn’t scream *malware* because it sees `.exe`, `Socket`, or JavaScript; it should analyze what those capabilities are actually being used to do.
 I especially like the **“build evidence”** section for this project. It captures the security philosophy you’ve already developed: your scanner shouldn’t scream *malware* because it sees `.exe`, `Socket`, or JavaScript; it should analyze what those capabilities are actually being used to do.
