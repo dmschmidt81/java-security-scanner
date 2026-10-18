@@ -5,29 +5,19 @@ import java.util.Scanner;
 
 public class SecurityApp {
     
-    private File file;
-    private String fileName;
+    
     private int riskLevel;
 
-    public SecurityApp(File testFile) 
+    public SecurityApp() 
     {
-        file = testFile;
         riskLevel = setRiskLevel(0);
     }
 
-    public void scanFile() 
+    
+
+    public static String detectFileType(String fileName, File file)
     {
-        Scanner input = new Scanner(this.file);    
-        int dotIndex = fileName.lastIndexOf(".");
         
-
-       
-    }
-
-    public static String detectFileType()
-    {
-        File fileTemp = this.file;
-        Scanner input = new Scanner(fileTemp); 
         int dotIndex = fileName.lastIndexOf(".");
 
          if(dotIndex != -1) {
@@ -36,24 +26,39 @@ public class SecurityApp {
 
             if ("java".equals(fileExtension)) 
             {
-                System.out.println("File type: Java"); // Example risk level for Java files
+                return "File type: Java"; // Example risk level for Java files
             }
             else if ("js".equals(fileExtension)) 
             {
-                System.out.println("File type: JavaScript"); // Example risk level for JavaScript files
+                return "File type: JavaScript"; // Example risk level for JavaScript files
             }
             else if("py".equals(fileExtension)) 
             {
-                System.out.println("File type: Python"); // Example risk level for Python files
+                return "File type: Python"; // Example risk level for Python files
             }
-        }
-        else 
-        {
-            System.out.println("No file extension found.");
+            else if("txt".equals(fileExtension)) 
+            {
+                return "File type: Text"; // Example risk level for Text files
+            }
+            else 
+            {
+                return "Unknown";
+            }
         }
 
         input.close();
-        System.out.println("Risk level: " + riskLevel);int dotIndex = fileName.lastIndexOf(".");
+        System.out.println("Risk level: " + riskLevel);
+
+    }
+
+
+    public void scanFile(File fileName) 
+    {
+        Scanner input = new Scanner(fileName);   
+        int dotIndex = fileName.lastIndexOf(".");
+        
+
+       
     }
 
     private int setRiskLevel(int Level) 
