@@ -60,6 +60,7 @@ public class SecurityApp
             while (input.hasNextLine()) 
             {
                 String line = input.nextLine();
+                System.out.println("Scanning line: " + line);
 
                 for (SecurityRule rule : securityRules) 
                 {
