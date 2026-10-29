@@ -2,15 +2,20 @@ package security;
 
 import java.io.File;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.io.FileNotFoundException;
 
 public class SecurityApp {
     
     
     private int riskLevel;
+    private ArrayList<SecurityRule> securityRules;
 
-    public SecurityApp() 
+
+    public SecurityApp(ArrayList<SecurityRule> securityRules) 
     {
-        riskLevel = setRiskLevel(0);
+        riskLevel = 0;
+        this.securityRules = securityRules;
     }
 
     
@@ -52,13 +57,35 @@ public class SecurityApp {
     }
 
 
-    public void scanFile(File fileName) 
+    public void scanFile(File file) 
     {
-        Scanner input = new Scanner(fileName);   
-        int dotIndex = fileName.lastIndexOf(".");
-        
+        riskLevel = 0; // Reset risk level before scanning
+        try( Scanner input = new Scanner(file))
+        {
+            while (input.hasNextLine()) 
+            {
 
-       
+                String line = input.nextLine();
+
+
+                // Check each line against every security rule
+                for (SecurityRule rule : securityRules) 
+                {
+
+                    String pattern = rule.getPattern();
+                    
+                    if (line.matches(pattern)) 
+                    {
+                        System.out.println("Potential match: " + rule.getRuleName());
+                        riskLevel += rule.getRiskWeight();
+                    }
+                }
+            }
+        }
+        catch (FileNotFoundException e)
+        {
+            System.err.println("File not found: " + e.getMessage());
+        }
     }
 
     private int setRiskLevel(int Level) 
