@@ -10,6 +10,7 @@ public class Testfile {
         String data = Files.readString(Path.of("settings.txt"));
         Socket socket = new Socket("example.com", 443);
         File output = new File("results.txt");
+        String query = "SELECT * FROM students";
 
         System.out.println(data);
         System.out.println("Connected to: " + socket.getInetAddress());
