@@ -1,33 +1,43 @@
+
 package security;
 
 public class SecurityRule {
+
     private String ruleName;
     private String ruleDescription;
     private int riskWeight;
     private String pattern;
 
-    public SecurityRule(String ruleName, String ruleDescription, int riskWeight, String pattern) {
+    public SecurityRule(
+        String ruleName,
+        String ruleDescription,
+        int riskWeight,
+        String pattern
+    ) 
+    {
         this.ruleName = ruleName;
         this.ruleDescription = ruleDescription;
         this.riskWeight = riskWeight;
         this.pattern = pattern;
     }
 
-    public String getRuleName() {
+    public String getRuleName() 
+    {
         return ruleName;
     }
 
-    public String getRuleDescription() {
+    public String getRuleDescription() 
+    {
         return ruleDescription;
     }
 
-    public int getRiskWeight() {
+    public int getRiskWeight() 
+    {
         return riskWeight;
     }
 
-    public String getPattern() {
+    public String getPattern() 
+    {
         return pattern;
     }
-
-    
 }
